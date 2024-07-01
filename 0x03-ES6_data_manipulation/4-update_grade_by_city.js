@@ -1,9 +1,9 @@
-export default function updateStudentGradeByCity(stdnts, cty, newGrades) {
+export default function updateStudentGradeByCity(stdnts, city, newGrades) {
   const dfltGrade = { grade: 'N/A' };
 
   if (stdnts instanceof Array) {
     return stdnts
-      .filter((stdnt) => stdnt.location === cty)
+      .filter((stdnt) => stdnt.location === city)
       .map((stdnt) => ({
         id: stdnt.id,
         frstName: stdnt.frstName,
