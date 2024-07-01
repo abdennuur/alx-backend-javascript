@@ -1,6 +1,6 @@
-export default function getStudentsByLocation(stdnts, cty) {
-  if (stdnts instanceof Array) {
-    return stdnts.filter((stdnt) => stdnt.location === cty);
+export default function getStudentsByLocation(students, cty) {
+  if (students instanceof Array) {
+    return students.filter((stdnt) => stdnt.location === cty);
   }
   return [];
 }
