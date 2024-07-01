@@ -1,17 +1,18 @@
-export default function updateStudentGradeByCity(stdnts, city, newGrades) {
-  const dfltGrade = { grade: 'N/A' };
+export default function updateStudentGradeByCity(ls, city, newGrade) {
+  return ls
+    .filter((obj) => obj.location === city)
+    .map((student) => {
+      newGrade.map((stdntGrade) => {
+        if (stdntGrade.studentId === student.id) {
+          student.grade = stdntGrade.grade;
+        }
 
-  if (stdnts instanceof Array) {
-    return stdnts
-      .filter((stdnt) => stdnt.location === city)
-      .map((stdnt) => ({
-        id: stdnt.id,
-        frstName: stdnt.frstName,
-        location: stdnt.location,
-        grade: (newGrades
-          .filter((grade) => grade.studentId === stdnt.id)
-          .pop() || dfltGrade).grade,
-      }));
-  }
-  return [];
+        if (!student.hasOwnProperty('grade')) {
+          student.grade = 'N/A';
+        }
+        return student;
+      });
+
+      return student;
+    });
 }
